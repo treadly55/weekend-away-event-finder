@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Fun Finder</title>
+    <link rel="stylesheet" href="/style.css"> 
+    <style>
+        /* All styles are assumed to be in styles.css as per previous steps */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>City Fun Finder1</h1>
+        <p class="intro">Find exciting events happening in your chosen city!</p>
+
+        <div>
+            <label for="city-select">Choose a city:</label>
+            <select name="cities" id="city-select">
+                <option value="">--Please choose a city--</option>
+                <option value="Sydney, AU">Sydney</option>
+                <option value="Melbourne, AU">Melbourne</option>
+                <option value="Brisbane, AU">Brisbane</option>
+                <option value="Perth, AU">Perth</option>
+                <option value="Adelaide, AU">Adelaide</option>
+            </select>
+        </div>
+
+        <h2>When are you interested in?</h2>
+        <div class="timeframe-buttons">
+            <button id="btn-today" data-timeframe-key="today">Today</button>
+            <button id="btn-tomorrow" data-timeframe-key="tomorrow">Tomorrow</button>
+        </div>
+
+        <div id="results-area">
+            <p id="initial-prompt-message">Choose a city and timeframe above to find events.</p>
+        </div>
+
+        <div id="retry-section" class="hidden">
+            <p>Didn't find any events you like?</p>
+            <button id="btn-retry">Try a new state</button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
