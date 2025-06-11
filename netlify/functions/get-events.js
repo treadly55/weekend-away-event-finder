@@ -15,7 +15,7 @@ const cityLocationMapping = {
     "Adelaide, AU": "Adelaide, South Australia, Australia"
 };
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
     const { eventApiKeyString, city } = event.queryStringParameters; // city is "City, AU" from frontend
 
     if (!eventApiKeyString || !city) {

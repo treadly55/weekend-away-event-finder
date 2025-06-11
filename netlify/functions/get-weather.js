@@ -15,7 +15,7 @@ const cityCoordinates = {
     "Adelaide, AU": { lat: -34.9285, lon: 138.6007, displayName: "Adelaide" }
 };
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
     const { cityFullName, date: targetDateStr } = event.queryStringParameters; // date is YYYY-MM-DD
 
     if (!cityFullName || !targetDateStr) {
