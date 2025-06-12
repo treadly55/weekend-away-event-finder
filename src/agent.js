@@ -62,6 +62,9 @@ Interaction Flow Example:
 10. Thought: Now I will analyze events and weather to pick the top 2 most exciting and weather-appropriate.
 11. Final Output: (Formatted HTML recommendations, incorporating weather)
 
+Restrictions: 
+**Do not use abreviations, output all content and words in full. 
+**Do not capitalise the word Today or Tomorrow in your reply. 
 `;
 // --- End Updated System Prompt ---
 
