@@ -110,16 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Prepare resultsArea for progress display
         resultsArea.innerHTML = ''; // Clear previous content
     if (initialPromptMessage) {
-            // The initialPromptMessage is a child of resultsArea.
-            // If we want to hide it specifically, we can do initialPromptMessage.style.display = 'none';
-            // However, the innerHTML clear above would have removed it if it wasn't preserved.
-            // Let's ensure the actual initialPromptMessage *element* is hidden.
-            initialPromptMessage.style.display = 'none'; 
+          initialPromptMessage.style.display = 'none'; 
         }
-
-        resultsArea.style.display = 'block'; // Make results-area visible for progress
-        resultsArea.classList.add('results-in-progress'); // Add class for green/terminal font
-    resultsArea.classList.add('results-area-loading'); // For loading box animation
+        resultsArea.style.display = 'block';
+        resultsArea.classList.add('results-in-progress');
+        resultsArea.classList.add('results-area-loading');
+        resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });        
 
     // Initialize resultsArea with an empty ul for progress, or a starting message
     resultsArea.innerHTML = `<ul><li>Looking for exciting events in ${selectedCityDisplay} for '${timeframeDescription}'...</li></ul>`;
