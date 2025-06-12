@@ -182,11 +182,25 @@ font-family: var(--font-terminal);
   color: #000;
 }
 
-#results-area button {
-  border: none;
+#results-area a {
+  /* Core styles for button appearance */
+  display: inline-block; /* VERY IMPORTANT: Allows padding to work correctly */
   background-color: blueviolet;
   color: wheat;
-  padding: 20 10; 
+  padding: 15px 25px; /* Added units and adjusted for a nice size */
+  border: none;
+  text-decoration: none; /* Removes the link underline */
+  
+  /* Optional: Polishing touches */
+  border-radius: 5px; /* Adds slightly rounded corners */
+  cursor: pointer; /* Ensures the cursor is a pointer */
+  text-align: center;
+  transition: background-color 0.2s ease; /* Smooth transition for hover */
+}
+
+/* Add a hover effect for interactivity */
+#results-area a:hover {
+  background-color: darkviolet; /* A slightly darker shade on hover */
 }
 
 #results-area ul { 
@@ -230,4 +244,9 @@ font-family: var(--font-terminal);
 
 #retry-section button:hover {
   background-color: #1628ef;
+}
+
+br {
+  display: block;
+  margin: 4px 0; /* Adjust as needed */
 }
