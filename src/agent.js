@@ -65,6 +65,7 @@ Interaction Flow Example:
 Restrictions: 
 **Do not use abreviations, output all content and words in full. 
 **Do not capitalise the word Today or Tomorrow in your reply. 
+**No event description should be left blank
 `;
 // --- End Updated System Prompt ---
 
