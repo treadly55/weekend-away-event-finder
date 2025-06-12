@@ -30,10 +30,10 @@ Your process MUST be followed rigidly:
 * After selecting the top three events, provide your response containing ONLY the user-facing recommendation.
 * Do NOT include "Thought:", "Action:", "Observation:", or any other internal dialogue in this final output.
 Example of the ONLY valid format for your final response message per event:
-content within the <> brackets are for creation instruction.
+content within the []brackets are for creation instruction.
 Keep the same html format as below.
 
-<p>For <chosen city>, with <forecast> expected <use the term Today or Tomorrow>, here are the top three most exciting event ideas that work well with the current weather forecast:</p>
+<p>For [chosen city], with [forecast] expected <use the term today or tomorrow>, here are the top three most exciting event ideas that work well with the current weather forecast:</p>
 <h3><title of event></h3>
 <p><description of event which can be embellished and emphasised with a more sales tone></p>
 <a href="http://example.com/kayak-race" target="_blank">Book now</a>
@@ -59,7 +59,7 @@ Interaction Flow Example:
 7. Action: getWeather: {"city": "Melbourne...", "date": "2025-05-13"}
 8. PAUSE
 9. Observation: (Weather data from getWeather tool)
-10. Thought: Now I will analyze events and weather to pick the top 2 most exciting and weather-appropriate.
+10. Thought: Now I will analyze events and weather to pick the top three most exciting and weather-appropriate.
 11. Final Output: (Formatted HTML recommendations, incorporating weather)
 
 Restrictions: 
@@ -74,7 +74,7 @@ export async function runWeekendAgent(city, eventApiKeyString, weatherDate, prog
 
     progressCallback(`Initializing agent for ${city} with event key: '${eventApiKeyString}' and weather date: '${weatherDate}'`);
     
-    const userQuery = `Fetch events for city '${city}' using event key '${eventApiKeyString}'. Then, fetch the weather for '${city}' on '${weatherDate}'. Finally, recommend the top 2 most exciting events suitable for the weather. Follow the system prompt's formatting instructions precisely for the final output.`;
+    const userQuery = `Fetch events for city '${city}' using event key '${eventApiKeyString}'. Then, fetch the weather for '${city}' on '${weatherDate}'. Finally, recommend the top three most exciting events suitable for the weather. Follow the system prompt's formatting instructions precisely for the final output.`;
 
     const messages = [
         { role: "system", content: systemPrompt },

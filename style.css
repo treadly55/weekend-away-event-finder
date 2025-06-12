@@ -189,7 +189,7 @@ font-family: var(--font-terminal);
 #results-area a {
   display: inline-block; /* VERY IMPORTANT: Allows padding to work correctly */
   background-color: var(--clr-accent);
-  color: #fff;
+  color: #000;
   padding: 15px 25px; /* Added units and adjusted for a nice size */
   border: none;
   text-decoration: none; /* Removes the link underline */
@@ -197,6 +197,7 @@ font-family: var(--font-terminal);
   cursor: pointer; /* Ensures the cursor is a pointer */
   text-align: center;
   margin-bottom: 40px;
+  font-weight: 800;
 }
 
 #results-area ul { 

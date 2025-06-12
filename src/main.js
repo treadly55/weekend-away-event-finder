@@ -148,10 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsArea.classList.remove('results-in-progress'); // Remove special font/color before showing final results
       resultsArea.classList.remove('results-area-loading'); 
             // The initialPromptMessage is already dealt with (hidden or removed by innerHTML overwrite)
-      resultsArea.innerHTML = `<h2>Top Event Suggestions for ${selectedCityDisplay} (${timeframeDescription})</h2><p>${recommendations.replace(/\n/g, '<br>')}</p>`;
+      resultsArea.innerHTML = `
+      <h2>Top Event Suggestions for ${selectedCityDisplay}</h2>
+      <p>${recommendations.replace(/\n/g, '<br>')}</p>`;
       console.log("Final Recommendations:", recommendations);
       retrySection.classList.remove('hidden');
-
     } catch (error) {
       console.error("Error getting recommendations:", error);
             resultsArea.classList.remove('results-in-progress'); // Remove special font/color before showing error
