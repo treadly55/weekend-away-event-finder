@@ -25,28 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsArea.innerHTML = ''; // Clear all dynamic content
         resultsArea.style.display = 'none'; // Hide results area
         resultsArea.classList.remove('results-in-progress'); // Remove progress styling class
-        resultsArea.classList.remove('results-area-loading'); // Remove loading box class
-
-    // Re-show the initial prompt message if it's part of the static HTML and you want it back
-        // However, the initial prompt is *inside* resultsArea in your HTML, so hiding resultsArea hides it.
-        // If the initial prompt was outside resultsArea, you'd manage its visibility separately.
-        // For now, let's ensure the initial prompt text is re-added if needed, though it's inside resultsArea.
-        // If resultsArea is cleared and then initialPromptMessage (which is a child) is hidden/shown, it might be complex.
-        // A simpler approach is to re-add the prompt text if resultsArea is empty and meant to be shown.
-        // But since resultsArea is hidden on reset, the prompt inside it is also hidden.
-        // The initial prompt message element itself is still in resultsArea from the HTML.
-        // We will handle its visibility when search starts instead.
+        resultsArea.classList.remove('results-area-loading'); // Remove loading box class  
         if (initialPromptMessage) {
-            // Ensure the initial prompt message element itself is available if needed later.
-            // If innerHTML cleared it, we'd have to re-create or re-append it.
-            // The original HTML for initialPromptMessage is <p id="initial-prompt-message">Choose a city and timeframe above to find events.</p>
-            // If it's cleared by resultsArea.innerHTML = '', it's gone.
-            // So, we should hide/show the initialPromptMessage *element* rather than relying on it being in innerHTML.
-            // For this implementation, initialPromptMessage is within resultsArea. So if resultsArea is hidden, it's hidden.
-            // The logic below for `initialPromptMessage.style.display = 'block'` in `handleTimeframeClick` will manage its visibility.
-            // The main thing for reset is hiding resultsArea.
         }
-
     retrySection.classList.add('hidden');
     citySelect.disabled = false;
     citySelect.value = ""; 
@@ -112,38 +93,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialPromptMessage) {
           initialPromptMessage.style.display = 'none'; 
         }
-        resultsArea.style.display = 'block';
-        resultsArea.classList.add('results-in-progress');
-        resultsArea.classList.add('results-area-loading');
-        resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });        
-
-    // Initialize resultsArea with an empty ul for progress, or a starting message
-    resultsArea.innerHTML = `<ul><li>Looking for exciting events in ${selectedCityDisplay} for '${timeframeDescription}'...</li></ul>`;
-    
+        
+    // Show a simple loading message and scroll to it
+    resultsArea.innerHTML = `<p>Finding events in ${selectedCityDisplay} for ${timeframeDescription}...</p>`;
+    resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });    
     retrySection.classList.add('hidden');
-    let progressLog = [`<li>Looking for exciting events in ${selectedCityDisplay} for '${timeframeDescription}'...</li>`];
-
-    function updateProgress(message) {
-      console.log('[Progress]', message);
-      progressLog.push(`<li>${message}</li>`);
-      resultsArea.innerHTML = `<ul>${progressLog.join('')}</ul>`; // This will inherit .results-in-progress styling
-    }
 
     try {
-      updateProgress(`Weather will be checked for: ${weatherDate}.`);
-      updateProgress(`Using Events API key: '${actualEventApiKey}' for city: ${selectedCityForAPI}`);
-      console.log(`Calling Agent for City: ${selectedCityForAPI}, Event Key: ${actualEventApiKey}, Weather Date: ${weatherDate}`);
+     console.log(`Calling Agent for City: ${selectedCityForAPI}, Event Key: ${actualEventApiKey}, Weather Date: ${weatherDate}`);
 
       const recommendations = await runWeekendAgent(
         selectedCityForAPI,
         actualEventApiKey,
         weatherDate,
-        updateProgress
+        () => {}
       );
-      
-            resultsArea.classList.remove('results-in-progress'); // Remove special font/color before showing final results
-      resultsArea.classList.remove('results-area-loading'); 
-            // The initialPromptMessage is already dealt with (hidden or removed by innerHTML overwrite)
+  
+
       resultsArea.innerHTML = `
       <h2>Top Event Suggestions for ${selectedCityDisplay}</h2>
       <p>${recommendations.replace(/\n/g, '<br>')}</p>`;
@@ -151,9 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
       retrySection.classList.remove('hidden');
     } catch (error) {
       console.error("Error getting recommendations:", error);
-            resultsArea.classList.remove('results-in-progress'); // Remove special font/color before showing error
-      resultsArea.classList.remove('results-area-loading');
-            // The initialPromptMessage is already dealt with
       resultsArea.innerHTML = `<p style="color: red;">Sorry, an error occurred: ${error.message}</p>`;
       retrySection.classList.remove('hidden');
     } finally {
@@ -169,28 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
     retryButton.addEventListener('click', () => {
       console.log("Retry button clicked.");
       resetUIForNewSearch();
-            // After reset, the initial prompt (if desired) needs to be handled.
-            // Since resultsArea is now hidden, the prompt within it is also hidden.
-            // If the prompt should reappear on its own (outside resultsArea), that's different.
-            // But current HTML has it inside.
-            // The current resetUIForNewSearch hides resultsArea, which is correct.
-            // The original index.html includes:
-            // <div id="results-area">
-            //    <p id="initial-prompt-message">Choose a city and timeframe above to find events.</p>
-            // </div>
-            // If resultsArea is hidden, initial-prompt-message is hidden. This seems intended.
-            // If a search is then started, handleTimeframeClick will show resultsArea and hide initial-prompt-message
-            // before showing progress.
     });
   }
-
-    // Initial state management for initialPromptMessage (ensure it's displayed if resultsArea is not yet used)
-    // Given resultsArea starts as display:none, initialPromptMessage inside it will also be hidden.
-    // This is the desired "hidden until after the search begins" behavior for the entire block.
-    // So, no explicit action needed here for initialPromptMessage at DOMContentLoaded
-    // if resultsArea's display:none in CSS handles it.
-
-    // The line below was from original, if results-area was visible by default, this would show the prompt inside it.
-    // if(initialPromptMessage) initialPromptMessage.style.display = 'block';
-    // But since #results-area is now display:none initially, this won't make the prompt visible until #results-area is shown.
 });
