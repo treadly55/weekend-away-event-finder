@@ -96,8 +96,14 @@ if (initialPromptMessage) {
     
     // 2. Show the results area and a simple loading message
     resultsArea.style.display = 'block'; 
-    resultsArea.innerHTML = `<p style="text-align: center;">Finding events in ${selectedCityDisplay} for ${timeframeDescription}...</p>`;
-
+    resultsArea.innerHTML = `
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <svg class="loading-spinner" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" fill="none" stroke-width="5" stroke="var(--clr-accent)" stroke-linecap="round" stroke-dasharray="30, 150"></circle>
+            </svg>
+            <p>Finding events in ${selectedCityDisplay} for ${timeframeDescription}...</p>
+        </div>
+        `;
     // 3. Scroll to the loading message
     resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
 

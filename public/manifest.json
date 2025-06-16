@@ -1,6 +1,6 @@
 {
-  "name": "City event finder",
-  "short_name": "EventFinder",
+  "name": "City Event Finder",
+  "short_name": "City Event Finder",
   "description": "Find exciting events happening in your chosen city!",
   "start_url": "/",
   "display": "standalone",
