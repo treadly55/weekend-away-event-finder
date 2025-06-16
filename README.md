@@ -40,17 +40,17 @@ WEATHER_API_KEY="your_openweathermap_api_key_here"
 
 # Project structure
 /
-├── public/              # Static assets (icons, manifest, service worker)
+├── public/              
 │   ├── icons/
 │   ├── manifest.json
 │   └── sw.js
-├── src/                 # Frontend source code
-│   ├── agent.js         # AI agent logic and OpenAI prompt
-│   ├── main.js          # Core application logic and event handlers
-│   ├── openaiclient.js  # OpenAI client setup
-│   └── tools.js         # Functions that call the backend
-├── netlify/functions/   # Serverless backend functions
-│   └── get-events.cjs   # Fetches event data from SerpApi
+├── src/                 
+│   ├── agent.js         
+│   ├── main.js          
+│   ├── openaiclient.js  
+│   └── tools.js        
+├── netlify/functions/   
+│   └── get-events.cjs   
 
 
 ## 📄 License
