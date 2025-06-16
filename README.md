@@ -1,8 +1,8 @@
 # 🎉 City Event Finder
 
-**City Event Finder** is a proof-of-concept web application powered by the OpenAI Assistants API working as an AI agent to find and curate events in different major Australian capital cities. The Assistant considers both the upcoming weather for the selected city and the upcoming events in that location before making an informed suggestion.
+**City Event Finder** is a proof-of-concept web application powered by an agentic AI agent which is programmed to find and curate events in different major Australian capital cities. The AI agent considers both the upcoming weather for the selected city and the upcoming events in that location before making an informed suggestion.
 
-The application relies on SerpApi for event data, and OpenWeatherMap for weather forecasts.
+The AI agent relies on SerpApi for event data, and OpenWeatherMap for weather forecasts.
 
 
 ## 🛠 Tech Stack
