@@ -1,0 +1,21 @@
+{
+  "name": "City event finder",
+  "short_name": "EventFinder",
+  "description": "Find exciting events happening in your chosen city!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#051221",
+  "theme_color": "#051221",
+  "icons": [
+    {
+      "src": "/icons/event-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/event-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
