@@ -81,7 +81,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Replaced var(--shadow-container) */
-  max-width: 600px;
+  width: 100%;
   margin: auto;
 }
 
@@ -283,4 +283,12 @@ font-family: var(--font-terminal);
 br {
   display: block;
   margin: 4px 0; /* Adjust as needed */
+}
+
+
+@media (min-width: 768px) {
+  .container {
+    /* This will be the maximum width on desktops */
+    max-width: 768px; 
+  }
 }
