@@ -1,4 +1,8 @@
 /* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   /* --- Variables to KEEP in :root --- */
@@ -26,8 +30,7 @@
 body {
   font-family: var(--font-sans);
   color: #1E1E1E; /* Replaced var(--clr-text) */
-  background-color: var(--clr-bg);
-  margin: 20px;
+  background-color: var(--clr-primary);
 }
 
 /* Headings */
@@ -36,26 +39,27 @@ h1, h2 {
   letter-spacing: 0.5px;
   color: var(--clr-accent);
   text-align: center;
-  line-height: 1;
 }
 
 h1 {
   font-size: 4rem;
+  line-height: 4.7rem;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .main-header {
-  /* Set a fixed height for the header area */
   height: 190px;
-
-  /* Apply the background image directly to the header */
   background-image: url('/icons/bg-background.png');
   background-size: cover;
   background-position: center;
-
-  /* Use Flexbox to perfectly center the h1 inside */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .header-background {
@@ -79,9 +83,7 @@ h1 {
 .container {
   background-color: var(--clr-primary);
   padding: 20px;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Replaced var(--shadow-container) */
-  width: 100%;
   margin: auto;
 }
 
@@ -92,14 +94,14 @@ p {
 /* Introductory paragraph */
 p.intro {
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 /* Form Labels */
 label {
   color: var(--clr-surface-light);
   display: block;
-  margin-top: 15px;
+  margin-top: 35px;
   margin-bottom: 5px;
   font-weight: 600;
   font-size: 1.2rem;
