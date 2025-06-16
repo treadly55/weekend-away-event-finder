@@ -96,7 +96,7 @@ if (initialPromptMessage) {
     
     // 2. Show the results area and a simple loading message
     resultsArea.style.display = 'block'; 
-    resultsArea.innerHTML = `<p>Finding events in ${selectedCityDisplay} for ${timeframeDescription}...</p>`;
+    resultsArea.innerHTML = `<p style="text-align: center;">Finding events in ${selectedCityDisplay} for ${timeframeDescription}...</p>`;
 
     // 3. Scroll to the loading message
     resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
