@@ -43,6 +43,38 @@ h1 {
   font-size: 4rem;
 }
 
+.main-header {
+  /* Set a fixed height for the header area */
+  height: 190px;
+
+  /* Apply the background image directly to the header */
+  background-image: url('/icons/bg-background.png');
+  background-size: cover;
+  background-position: center;
+
+  /* Use Flexbox to perfectly center the h1 inside */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/icons/bg-background.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.main-header h1 {
+  color: var(--clr-accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
 /* Container for the main content */
 .container {
   background-color: var(--clr-primary);
@@ -69,7 +101,8 @@ label {
   display: block;
   margin-top: 15px;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 /* Select Dropdown */
