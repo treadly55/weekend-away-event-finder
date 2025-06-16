@@ -4,6 +4,8 @@
 
 The AI agent relies on SerpApi for event data, and OpenWeatherMap for weather forecasts.
 
+## 📱 Device Ready
+- Configured to function as a PWA on iOS and Android devices
 
 ## 🛠 Tech Stack
 
