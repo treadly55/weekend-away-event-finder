@@ -280,7 +280,7 @@ font-family: var(--font-terminal);
   font-size: 16px;
   background-color: var(--clr-primary-tint); /* Kept as it's a main status color */
   color: #FFFFFF; /* Replaced var(--clr-text-button-primary) */
-  border: none;
+  border: #fff 1px solid;
   border-radius: 4px;
   cursor: pointer;
   font-family: var(--font-sans);
@@ -301,5 +301,12 @@ br {
   .container {
     /* This will be the maximum width on desktops */
     max-width: 768px; 
+    border-radius: 6px;
   }
+
+  body {
+    background-color: var(--clr-surface-light);
+    margin-top: 5px;
+  }
+
 }
