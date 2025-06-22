@@ -41,6 +41,7 @@ SERPAPI_API_KEY="your_serpapi_api_key_here"
 WEATHER_API_KEY="your_openweathermap_api_key_here"
 
 # Project structure
+```
 /
 ├── public/              
 │   ├── icons/
@@ -53,7 +54,7 @@ WEATHER_API_KEY="your_openweathermap_api_key_here"
 │   └── tools.js        
 ├── netlify/functions/   
 │   └── get-events.cjs   
-
+```
 
 ## 📄 License
 
